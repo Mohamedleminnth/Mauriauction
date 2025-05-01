@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mauriauction</title>
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background: #f9f9f9; direction: rtl; }
+    header { background: #2b4d70; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+    nav a { color: white; margin: 0 0.5rem; text-decoration: none; }
+    .lang-switch { display: flex; gap: 0.5rem; }
+    .hero, .services, .about, .contact { padding: 2rem; text-align: center; }
+    h1, h2 { color: #2b4d70; }
+    .service-item { margin-bottom: 1rem; }
+    .contact a { display: inline-block; margin: 0.5rem; text-decoration: none; color: white; background: #2b4d70; padding: 0.5rem 1rem; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div><strong>mauriauction</strong></div>
+    <nav>
+      <a href="#" class="nav-home">الرئيسية</a>
+      <a href="#services" class="nav-services">الخدمات</a>
+      <a href="#about" class="nav-about">من نحن</a>
+      <a href="#contact" class="nav-contact">تواصل معنا</a>
+    </nav>
+    <div class="lang-switch">
+      <a href="#" onclick="switchLang('ar')">AR</a>
+      <a href="#" onclick="switchLang('fr')">FR</a>
+      <a href="#" onclick="switchLang('en')">EN</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1 class="hero-title">مرحبًا بكم في mauriauction</h1>
+    <p class="hero-sub">نربطك بمزادات وبضائع أمريكا ونشحنها إلى موريتانيا بأمان وسرعة.</p>
+  </section>
+
+  <section id="services" class="services">
+    <h2 class="services-title">خدماتنا</h2>
+    <div class="service-item service1">شراء سيارات من المزادات الأمريكية</div>
+    <div class="service-item service2">شراء بضائع إلكترونية وتجارية</div>
+    <div class="service-item service3">شحن موثوق وآمن إلى موريتانيا</div>
+  </section>
+
+  <section id="about" class="about">
+    <h2 class="about-title">من نحن؟</h2>
+    <p class="about-desc">mauriauction هو مشروع متخصص في تسهيل شراء وشحن السيارات والبضائع من أمريكا إلى موريتانيا، بموثوقية ودعم مباشر.</p>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2 class="contact-title">تواصل معنا</h2>
+    <a href="https://wa.me/" target="_blank">واتساب</a>
+    <a href="#">فيسبوك</a>
+    <a href="mailto:info@mauriauction.com">بريد إلكتروني</a>
+  </section>
+
+  <script>
+    const translations = {
+      ar: {
+        'nav-home': 'الرئيسية',
+        'nav-services': 'الخدمات',
+        'nav-about': 'من نحن',
+        'nav-contact': 'تواصل معنا',
+        'hero-title': 'مرحبًا بكم في mauriauction',
+        'hero-sub': 'نربطك بمزادات وبضائع أمريكا ونشحنها إلى موريتانيا بأمان وسرعة.',
+        'services-title': 'خدماتنا',
+        'service1': 'شراء سيارات من المزادات الأمريكية',
+        'service2': 'شراء بضائع إلكترونية وتجارية',
+        'service3': 'شحن موثوق وآمن إلى موريتانيا',
+        'about-title': 'من نحن؟',
+        'about-desc': 'mauriauction هو مشروع متخصص في تسهيل شراء وشحن السيارات والبضائع من أمريكا إلى موريتانيا، بموثوقية ودعم مباشر.',
+        'contact-title': 'تواصل معنا'
+      },
+      fr: {
+        'nav-home': 'Accueil',
+        'nav-services': 'Services',
+        'nav-about': 'À propos',
+        'nav-contact': 'Contact',
+        'hero-title': 'Bienvenue sur mauriauction',
+        'hero-sub': 'Nous connectons les enchères et les marchandises américaines à la Mauritanie en toute sécurité.',
+        'services-title': 'Nos Services',
+        'service1': 'Achat de voitures aux enchères américaines',
+        'service2': 'Achat de biens électroniques et commerciaux',
+        'service3': 'Expédition fiable vers la Mauritanie',
+        'about-title': 'Qui sommes-nous ?',
+        'about-desc': 'mauriauction facilite l'achat et l'expédition de voitures et marchandises des USA vers la Mauritanie.',
+        'contact-title': 'Contactez-nous'
+      },
+      en: {
+        'nav-home': 'Home',
+        'nav-services': 'Services',
+        'nav-about': 'About',
+        'nav-contact': 'Contact',
+        'hero-title': 'Welcome to mauriauction',
+        'hero-sub': 'We connect US auctions and goods to Mauritania securely and efficiently.',
+        'services-title': 'Our Services',
+        'service1': 'Buy cars from US auctions',
+        'service2': 'Buy electronics and commercial goods',
+        'service3': 'Secure shipping to Mauritania',
+        'about-title': 'About Us',
+        'about-desc': 'mauriauction is a project that helps buy and ship cars and goods from the US to Mauritania reliably.',
+        'contact-title': 'Contact Us'
+      }
+    };
+
+    function switchLang(lang) {
+      const elements = document.querySelectorAll('[class]');
+      elements.forEach(el => {
+        el.classList.forEach(cls => {
+          if (translations[lang] && translations[lang][cls]) {
+            el.textContent = translations[lang][cls];
+          }
+        });
+      });
+      document.documentElement.lang = lang;
+    }
+  </script>
+</body>
+</html>
